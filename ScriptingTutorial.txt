@@ -1,0 +1,89 @@
+In this text file I will teach you how to script for my text scripting engine.
+It shouldn't take longer than 5 minutes to read and understand and should be
+simple enough for just about anyone to follow.
+
+Okay lets start with the basics. The way the text scripting engine works is
+it parses your text and translates them to java via parsing. Each simple text
+method has a larger more complicated method already written in java behind it.
+
+First thing you should know and understand fully are loops as they are what makes
+a script stable. For my text scripting engine looping is done easily with goto methods.
+First you make a loop like so
+@someloop:
+
+now @someloop: will be our firt loop but we havn't added anything to this loop yet,
+so it won't do anything.
+
+Lets add some print to the client debug.
+
+@someloop:
+log(we are in our first loop!)
+
+Now it will print out "we are in our first loop once and the script will end. Lets move
+on to creating and using a second loop.
+
+@someloop:
+log(we are in our first loop!)
+goto(@someotherloop:)
+
+@someotherloop:
+log(we are in our other loop!)
+
+Now it will print out "we are in our first loop!" then it will jump to @someotherloop:
+and print out "we are in our other loop!" then the script will stop. Now lets make these
+2 loops actually loop.
+
+@someloop:
+log(we are in our first loop!)
+goto(@someotherloop:)
+
+@someotherloop:
+log(we are in our other loop!)
+goto(@someloop:)
+
+Now it will keep printing "we are in our first loop!" and "we are in our other loop!"
+over and over again in this order.
+
+Now you should have the basics down on how this works so lets move on to the more advanced
+scripting the requires the use of other methods.
+
+In this simple script we walk to a tile location, then once we make it there we will walk
+to another location and so on and so forth.
+
+@someloop:
+webwalkto(3336,4562,0)
+gotoifplayernear(3336,4562,5,@someotherloop:) //if we are within 5 tiles of 3336,4562 it will
+//move on to "@someotherloop:" and if not it will use goto(@someloop:) to return to the first line.
+goto(@someloop:)
+
+@someotherloop:
+webwalkto(4356,1234,0)
+gotoifplayernear(4356,1234,5,@someoloop:) //if we are within 5 tiles of 4356,1234 it will
+//move on to "@someloop:" and if not it will use goto(@someotherloop:) to return to the first line
+//of @someotherloop:
+goto(@someloop:) //we didnt make it to our destination so lets go back to @someotherloop:
+
+
+So our whole script will look like this
+
+@someloop:
+webwalkto(3336,4562,0)
+gotoifplayernear(3336,4562,5,@someotherloop:)
+goto(@someloop:)
+
+@someotherloop:
+webwalkto(4356,1234,0)
+gotoifplayernear(4356,1234,5,@someotherloop:)
+goto(@someloop:)
+
+Now lets move on top gathering ID's that are essential (e.g. Screen Models, Item Id's, Etc.)
+
+First open your TRiBoT RS3 Client and click "Debug", under this tab you can find "Screen Models"
+when you check this tab there will be numbers next to everything. Each one of those numbers is a 
+"Screen Model", grab the number for the Screen Model you want to interact with, you will need it later.
+Now for inventory items you want to do the same thing as Screen Models but click Inventory, you want
+to grab all the numbers from the start of the item until "R". For texture id's the easiest way is to
+click "Tools" then click Texture tool. Now to grab you positions for walking and such click "Debug"
+then "EGW Position" this will display your tile position.
+
+The list of methods in this github is current and up to date. So I hope this helped, and enjoy!
