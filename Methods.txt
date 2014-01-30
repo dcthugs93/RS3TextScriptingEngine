@@ -1,0 +1,93 @@
+
+-------------- [ W A L K I N G   M E T H O D S ] --------------
+
+/*Generates a straight path and walks to to the specified x, y, and plain tile positions*/
+walkto(int x, int y, int plane)
+
+/*Uses WebWalking to walk to specified x, y, and plain tile positions*/
+webwalkto(int x, int y, int plane)
+
+/*Uses WebWalking walkToBank() feature to find and walk to the nearest bank*/
+walktobank()
+
+
+-------------- [ C L I C K I N G   M E T H O D S ] --------------
+
+/* Right clicks a random spot on a screen model and selects specified option */
+rrclick(long... ids, String option, int minx, int miny, int maxx, int maxy)
+
+/*Left clicks a random spot on a screen model*/
+lrclick(long... ids, int minx, int miny, int maxx, int maxy)
+
+/*clicks an inventory item by id with the specified option*/
+clickinv(int id,String option)
+
+
+-------------- [ S L E E P   M E T H O D S ] --------------
+
+/*Sleeps until the boolean condition becomes true, will time out at a specified time in ms between min, and max*/
+waitforc(boolean condition, int min, int max)
+
+/*Sleeps for a random time between the min, and max*/
+wait(int min, int max)
+
+/*Sleeps for specified time in ms*/
+staticwait(int ms)
+
+
+-------------- [ G O - T O   M E T H O D S ] --------------
+
+/*goes to @"you specify" if the texture cr16 is found on screen*/
+gotoiftexturefound(int textureid, @place)
+
+/*goes to @"you specify" if players is moving or has an animation greater than 0. uses waiting conditions */
+gotoifplayeractive(@place)
+
+/*goes to @"you specify" if combat rings are found on screen*/
+gotoifincombat(@place)
+
+/*goes to @"you specify" if your backpack contains the specified id*/
+gotoifinbackpack(int ids, @place)
+
+/* goes to @"you specify" if the backpack contains more than the specified amount of the specified ids*/
+gotoifbackpackhasmore(int ids, int amount, @place)
+
+/* goes to @"you specify" if the backpack contains less than the specified amount of the specified ids*/
+gotoifbackpackhasless(int ids, int amount, @place)
+
+/*goes to @"you specify" if your backpack is full*/
+gotoifbackpackfull(@place)
+
+/*goes to specified loop if bank screen is open*/
+gotoifbankopen(@place:)
+
+/*goes to specified loop if bank screen is not open*/
+gotoifbankclosed(@place:)
+
+/*goes to specified loop if player is within the specified
+distance to the specified tiles*/
+gotoifplayernear(int x,int y,int dis,@place:)
+
+/*goes to specified loop if player is NOT within the specified
+distance to the specified tiles*/
+gotoifplayerfar(intx,int y,int dis,@place:)
+
+
+-------------- [ I N V E N T O R Y   M E T H O D S ] --------------
+
+/*drops everything in your backpack except for specified id's*/
+dropexcept(int id)
+
+/*drops everything in your backpack*/
+dropall()
+
+
+-------------- [ B A N K   M E T H O D S ] --------------
+/*deposits items by id with the specified amounts*/
+deposit(int id,int amount)
+
+/*deposits everything in your backpack*/
+depositall()
+
+/*withdraws a bank item by inventory id with the specified amounts*/
+withdraw(int id,int amount)
